@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +16,25 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
 
 Route::get('/ping', function(){
     return [
-        'pong' => true,
-        'teste' => [1, 2, 3]
+        'pong' => true
     ];
 });
 
-Route::post('/usuario', [ApiController::class, 'createUsuario']);
+Route::get('/unauthenticated', function(){
+    return ['error' => 'Usuário não logado!'];
+})->name('login');
+
+Route::post('/user', [AuthController::class, 'create']);
+Route::middleware('auth:sanctum')->get('/auth/logout', [AuthController::class, 'logout']);
+Route::post('/auth', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->post('/usuario', [ApiController::class, 'createUsuario']);
 Route::get('/usuarios', [ApiController::class, 'readAllUsuarios']);
 Route::get('/usuario/{id}', [ApiController::class, 'readUsuario']);
 Route::put('/usuario/{id}', [ApiController::class, 'updateUsuario']);

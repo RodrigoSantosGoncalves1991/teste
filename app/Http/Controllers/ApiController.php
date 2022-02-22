@@ -47,9 +47,9 @@ class ApiController extends Controller
     public function readAllUsuarios() {
         $array = ['error' => ''];
 
-        $usuarios = Usuarios::simplePaginate(2);
-        $array['list'] = $usuarios->items();
-        $array['current_page'] = $usuarios->currentPage();
+        $usuarios = Usuarios::all();
+        $array['list'] = $usuarios;
+        //$array['current_page'] = $usuarios->currentPage();
 
         return $array;
     }

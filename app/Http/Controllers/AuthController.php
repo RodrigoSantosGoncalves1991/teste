@@ -16,18 +16,26 @@ class AuthController extends Controller
 
         $rules = [
             'email' => 'required|email|unique:users,email|max:50',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'password_confirm' => 'required|min:8',
         ];
         $validator = Validator::make($request->all(), $rules);
 
+        
         if($validator->fails()) {
             $array['error'] = $validator->messages();
             return $array;
         }
-
+        
         $email = $request->input('email');
         $password = $request->input('password');
+        $password_confirm = $request->input('password_confirm');
 
+        if($password != $password_confirm) {
+            $array['error'] = 'As senhas digitadas não coincidem';
+            return $array;
+        }
+ 
         $newUser = new User();
         $newUser->email = $email;
         $newUser->password = password_hash($password, PASSWORD_DEFAULT);

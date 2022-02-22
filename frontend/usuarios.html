@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>datatable com bootstrap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container py-5">
+    <div class="row">
+      <table id="data-tables" class="table table-striped" style="width: 100%">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Data de Nascimento</th>
+            <th>Cidade</th>
+            <th>Emprego</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script type="module" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="module" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+  <script type="module" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+  <script type="module" src="./assets/js/data_tables.js"></script>
+</body>
+
+</html>

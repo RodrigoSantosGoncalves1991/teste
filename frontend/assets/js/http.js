@@ -5,7 +5,12 @@ const apiTeste = axios.create({
 
 async function getUsuarios() {
   try {
-    let response = await apiTeste.get('usuarios');
+    let token = sessionStorage.getItem('token');
+    let response = await apiTeste.get('usuarios', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -37,4 +42,64 @@ async function postAuth(input_email, input_password) {
   }
 }
 
-export { getUsuarios, postUser, postAuth };
+async function editUsuario(dados) {
+  try {
+    let token = sessionStorage.getItem('token');
+    let id = dados.id;
+    delete dados.id;
+    let response = await apiTeste.put(`usuario/${id}`, dados, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function addUsuario(dados) {
+  try {
+    let token = sessionStorage.getItem('token');
+    let response = await apiTeste.post('usuario', dados, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteUsuario(id) {
+  try {
+    let token = sessionStorage.getItem('token');
+    let response = await apiTeste.delete(`usuario/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
+async function getLogout() {
+  try {
+    let token = sessionStorage.getItem('token');
+    let response = await apiTeste.get('auth/logout', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getUsuarios, postUser, postAuth, getLogout, editUsuario, addUsuario, deleteUsuario };

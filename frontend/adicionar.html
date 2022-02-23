@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar cadastro</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+    id="bootstrap-css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/formulario.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="position-relative" style="height: 50px">
+    <button type="button" class="btn btn-success position-absolute top-0 end-0"
+      style="margin-right: 300px;left: 1300px; top: 10px"><a
+        href="http://127.0.0.1:8080/usuarios.html">Home</a></button>
+  </div>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="./assets/img/meeta_solutions.jpg" id="icon" alt="User Icon" />
+      </div>
+
+      <h1 style="font-size: 20px">Adicionar cadastro</h1>
+
+      <form class="form">
+        <div class="mb-3">
+          <!-- <label for="InputEmail1" class="form-label">Nome</label> -->
+          <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Nome">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="InputPassword1" class="form-label">E-mail</label> -->
+          <input type="text" class="form-control" id="email" placeholder="E-mail">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="InputPassword1" class="form-label">Data de Nascimento:</label> -->
+          <input type="text" class="form-control" id="data_nascimento" placeholder="Data de Nascimento">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="InputPassword1" class="form-label">Data de Nascimento:</label> -->
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="InputPassword1" class="form-label">Data de Nascimento:</label> -->
+          <input type="text" class="form-control" id="emprego" placeholder="Emprego">
+        </div>
+        <button type="button" class="btn btn-primary" id="button">Adicionar</button>
+      </form>
+
+    </div>
+  </div>
+  <script src="https://unpkg.com/imask"></script>
+  <script type="module" src="./assets/js/adicionar.js"></script>
+</body>
+
+</html>

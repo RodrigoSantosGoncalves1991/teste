@@ -14,7 +14,7 @@ class ApiController extends Controller
 
         $rules = [
             'nome' => 'required|max:50',
-            'email' => 'required|unique:usuarios|max:50',
+            'email' => 'required|unique:usuarios|email|max:50',
             'data_nascimento' => 'required|date|min:10',
             'cidade' => 'required|max:50',
             'emprego' => 'required|max:50',
@@ -73,7 +73,7 @@ class ApiController extends Controller
 
         $rules = [
             'nome' => 'max:50',
-            'email' => 'unique:usuarios|max:50',
+            'email' => 'unique:usuarios|email|max:50',
             'data_nascimento' => 'date|min:10',
             'cidade' => 'max:50',
             'emprego' => 'max:50',

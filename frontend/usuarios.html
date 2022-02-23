@@ -13,6 +13,10 @@
 
 <body>
 
+  <div class="position-relative">
+    <button type="button" class="btn btn-dark position-absolute top-0 end-0" style="margin-right: 300px"
+      id="button">Logout</button>
+  </div>
   <div class="container py-5">
     <div class="row">
       <table id="data-tables" class="table table-striped" style="width: 100%">
@@ -24,11 +28,18 @@
             <th>Data de Nascimento</th>
             <th>Cidade</th>
             <th>Emprego</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
+  </div>
+  <div class="position-relative">
+    <button type="button" class="btn btn-primary position-absolute top-0 end-0" style="margin-right: 300px"
+      id="button"><a href="http://127.0.0.1:8080/adicionar.html"
+        style="text-decoration:none; color: whitesmoke;">Adicionar
+        Cadastro</a></button>
   </div>
   <script type="module" src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script type="module" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>

@@ -35,7 +35,7 @@ Route::middleware('auth:sanctum')->get('/auth/logout', [AuthController::class, '
 Route::post('/auth', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->post('/usuario', [ApiController::class, 'createUsuario']);
-Route::get('/usuarios', [ApiController::class, 'readAllUsuarios']);
-Route::get('/usuario/{id}', [ApiController::class, 'readUsuario']);
-Route::put('/usuario/{id}', [ApiController::class, 'updateUsuario']);
-Route::delete('/usuario/{id}', [ApiController::class, 'deleteUsuario']);
+Route::middleware('auth:sanctum')->get('/usuarios', [ApiController::class, 'readAllUsuarios']);
+Route::middleware('auth:sanctum')->get('/usuario/{id}', [ApiController::class, 'readUsuario']);
+Route::middleware('auth:sanctum')->put('/usuario/{id}', [ApiController::class, 'updateUsuario']);
+Route::middleware('auth:sanctum')->delete('/usuario/{id}', [ApiController::class, 'deleteUsuario']);
